@@ -210,3 +210,13 @@ const Header = ({ tagline }) => (
   </h3>
 );
 ```
+
+## 4. Routing and Routers
+
+There's at least 3 great options for routing in React:
+
+- [`react-router`](https://reacttraining.com/react-router/web/guides/quick-start)
+- [`next.js`](https://github.com/zeit/next.js/#routing)
+- [`@reach/router`](https://reach.tech/router)
+
+We are going to use `@reach/router` but there's a branch with `react/router` too [here](https://github.com/davidgchaves/oferta-del-dia/tree/react-router)
