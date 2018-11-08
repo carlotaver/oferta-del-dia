@@ -159,7 +159,7 @@ return (
 - `state`: where the data lives.
 - `props`: a way to get data (`state`) into a component.
 
-## 3. Stateless Functional Components
+## 3. Functional Stateless Components
 
 Five of them are equivalent
 
