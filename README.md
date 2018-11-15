@@ -258,3 +258,14 @@ class StorePicker extends React.Component {
 ```
 
 **Remember**: if you must access `this` inside a custom method/function in a component, you need to bind `this` with Method 1 or even better using Method 2.
+
+## 7. State in React
+
+- **State** is a JavaScript Object that lives inside a component and stores all the data that the component and probably its children need.
+- **State** is just a JavaScript Object that holds data.
+
+React philosophy: Update the data (state) and let it React take it and update components for us.
+
+You can never pass data up, you can only pass data down.
+
+Functions that update state and the state itself need to be in the same component.
