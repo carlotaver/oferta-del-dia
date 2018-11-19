@@ -317,3 +317,22 @@ Create a custom alias 👇
 ```
 
 You can access your site through `https://obradoiroteoftw.now.sh/`.
+
+### Deploy to Netlify
+
+```
+❯ npm install -g netlify-cli
+❯ netlify --version
+netlify-cli/2.2.1 darwin-x64 node-v8.12.0
+```
+
+Create a `_redirects` file 👇
+
+```
+/*    /index.html   200
+```
+
+```
+❯ cp _redirects build/
+❯ netlify deploy
+```
