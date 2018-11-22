@@ -28,11 +28,7 @@ class App extends React.Component {
     // 1. Take a copy of the existing `state`
     const newOrder = { ...this.state.order };
     // 2. Either add our order item to newOrder or update quantity
-    if (newOrder[key]) {
-      newOrder[key] = newOrder[key] + 1;
-    } else {
-      newOrder[key] = 1;
-    }
+    newOrder[key] = newOrder[key] ? newOrder[key] + 1 : 1;
     // 3. Set newOrder as the new `state`
     this.setState({ order: newOrder });
   };
