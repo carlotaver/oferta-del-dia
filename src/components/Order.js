@@ -3,10 +3,28 @@ import { formatPrice } from "../helpers";
 
 class Order extends React.Component {
   totalReducer = (subTotal, value) => {
-    const unitPrice = this.props.fishes[value].price;
+    const fish = this.props.fishes[value];
     const quantity = this.props.order[value];
+    const isAvailable = fish.status === "available";
 
-    return quantity * unitPrice + subTotal;
+    return isAvailable ? quantity * fish.price + subTotal : subTotal;
+  };
+
+  renderOrder = orderKey => {
+    const quantity = this.props.order[orderKey];
+    const fish = this.props.fishes[orderKey];
+    const isAvailable = fish.status === "available";
+
+    if (isAvailable) {
+      return (
+        <li key={orderKey}>
+          {quantity} lbs {fish.name}
+          {formatPrice(quantity * fish.price)}
+        </li>
+      );
+    } else {
+      return <li key={orderKey}>Sorry {fish.name} is not available!</li>;
+    }
   };
 
   render() {
@@ -16,6 +34,7 @@ class Order extends React.Component {
     return (
       <div className="order-wrap">
         <h2>Your Order</h2>
+        <ul className="order">{orderIds.map(this.renderOrder)}</ul>
         <div className="total">
           Total: <strong>{formatPrice(total)}</strong>
         </div>
