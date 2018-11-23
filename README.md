@@ -270,6 +270,26 @@ You can never pass data up, you can only pass data down.
 
 Functions that update state and the state itself need to be in the same component.
 
+## 8. Managing secrets with `.env`
+
+Create a file in the root of your project (same directory as `package.json`) that is called `.env`. Put this in there:
+
+```
+REACT_APP_API_KEY=<Your API key>
+REACT_APP_API_SECRET=<Your API secret>
+```
+
+Very important: YOu need to prefix every secret with `REACT_APP_`.
+
+Use it from JavaScript like this:
+
+```js
+process.env.REACT_APP_API_KEY;
+process.env.REACT_APP_API_SECRET;
+```
+
+And remember to `gitignore` the `.env` file!!!
+
 ## X. Production build
 
 Just run 👇
