@@ -272,14 +272,14 @@ Functions that update state and the state itself need to be in the same componen
 
 ## 8. Managing secrets with `.env`
 
-Create a file in the root of your project (same directory as `package.json`) that is called `.env`. Put this in there:
+Create a `.env`. file in the root of your project (same directory as `package.json`) and write there your secret keys:
 
 ```
 REACT_APP_API_KEY=<Your API key>
 REACT_APP_API_SECRET=<Your API secret>
 ```
 
-Very important: YOu need to prefix every secret with `REACT_APP_`.
+Very important: You need to prefix every secret with `REACT_APP_`.
 
 Use it from JavaScript like this:
 
@@ -288,7 +288,7 @@ process.env.REACT_APP_API_KEY;
 process.env.REACT_APP_API_SECRET;
 ```
 
-And remember to `gitignore` the `.env` file!!!
+And remember to `.gitignore` the `.env` file!!!
 
 ## X. Production build
 
@@ -298,7 +298,7 @@ Just run 👇
 ❯ npm run build
 ```
 
-### Deploying to `now`
+### Deploying to `now` (CURRENTLY BROKEN)
 
 - [Now — Global Serverless Deployments](https://zeit.co/now)
 - [Create React App Example](https://github.com/zeit/now-examples/tree/master/create-react-app)
@@ -338,7 +338,7 @@ Create a custom alias 👇
 
 You can access your site through `https://obradoiroteoftw.now.sh/`.
 
-### Deploy to Netlify
+### Deploy to Netlify (WORKING)
 
 ```
 ❯ npm install -g netlify-cli
