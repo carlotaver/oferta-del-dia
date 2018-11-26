@@ -13,11 +13,23 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    // Read from localStorage
+    const localStorageRef = localStorage.getItem(this.props.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+
+    // Sync data from Firebase
     const config = {
       context: this,
       state: "fishes"
     };
     this.ref = base.syncState(`${this.props.storeId}/fishes`, config);
+  }
+
+  componentDidUpdate() {
+    // Save to localStorage
+    localStorage.setItem(this.props.storeId, JSON.stringify(this.state.order));
   }
 
   componentWillUnmount() {

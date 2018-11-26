@@ -290,6 +290,29 @@ process.env.REACT_APP_API_SECRET;
 
 And remember to `.gitignore` the `.env` file!!!
 
+## 9. Component Lyfecicle
+
+Check out React Docs about [React.Component Lifecicle](https://reactjs.org/docs/react-component.html#the-component-lifecycle). We are using:
+
+- [`ComponentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount)
+- [`ComponentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate)
+- [`ComponentWillUnmount`](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+## V. Cool tricks
+
+Check out the `return null` trick from inside a `render()` method in a component.
+
+`Order.js`
+
+```js
+if (!fish) return null;
+```
+
+## W. Cool functions/methods
+
+- [`JSON.stringify`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+- [`JSON.parse`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
+
 ## X. Production build
 
 Just run 👇
