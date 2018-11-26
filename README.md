@@ -363,6 +363,14 @@ You can access your site through `https://obradoiroteoftw.now.sh/`.
 
 ### Deploy to Netlify (WORKING)
 
+tl;dr 👇
+
+```
+❯ npm run deploy:netlify
+```
+
+Long version 👇
+
 ```
 ❯ npm install -g netlify-cli
 ❯ netlify --version
@@ -376,6 +384,9 @@ Create a `_redirects` file 👇
 ```
 
 ```
+❯ npm run build
 ❯ cp _redirects build/
 ❯ netlify deploy
 ```
+
+When asked for a `deploy path:` enter `build`.
