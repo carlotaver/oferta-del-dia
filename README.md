@@ -272,7 +272,7 @@ Functions that update state and the state itself need to be in the same componen
 
 ## 8. Managing secrets with `.env`
 
-Create a `.env`. file in the root of your project (same directory as `package.json`) and write there your secret keys:
+Create a `.env` file in the root of your project (same directory as `package.json`) and write there your secret keys:
 
 ```
 REACT_APP_API_KEY=<Your API key>
