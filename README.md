@@ -369,6 +369,8 @@ tl;dr 👇
 ❯ npm run deploy:netlify
 ```
 
+When asked for a `deploy path:` enter `build`.
+
 Long version 👇
 
 ```
