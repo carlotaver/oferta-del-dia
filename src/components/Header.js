@@ -4,7 +4,7 @@ const Header = ({ tagline }) => (
   <header className="top">
     <h1>
       Catch
-      <span className="ofThe">
+      <span className="of-anchor-the">
         <span className="of">Of</span>
         <span className="the">The</span>
       </span>
