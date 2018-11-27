@@ -2,6 +2,11 @@ import React from "react";
 import { formatPrice } from "../helpers";
 
 class Order extends React.Component {
+  handleRemove = event => {
+    // NOTE: There's got to be a better way to do 👇
+    const orderKey = event.target.parentNode.attributes.orderkey.value;
+    this.props.removeFromOrder(orderKey);
+  };
   totalReducer = (subTotal, value) => {
     const fish = this.props.fishes[value];
     const quantity = this.props.order[value];
@@ -19,12 +24,10 @@ class Order extends React.Component {
 
     if (isAvailable) {
       return (
-        <li key={orderKey}>
+        <li key={orderKey} orderkey={orderKey}>
           {quantity} lbs {fish.name}
           {formatPrice(quantity * fish.price)}
-          <button onClick={() => this.props.removeFromOrder(orderKey)}>
-            &times;
-          </button>
+          <button onClick={this.handleRemove}>&times;</button>
         </li>
       );
     } else {
