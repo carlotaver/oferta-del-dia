@@ -26,7 +26,7 @@ class Order extends React.Component {
       return (
         <li key={orderKey} orderkey={orderKey}>
           {quantity} lbs {fish.name}
-          {formatPrice(quantity * fish.price)}
+          <span>{formatPrice(quantity * fish.price)}</span>
           <button onClick={this.handleRemove}>&times;</button>
         </li>
       );
