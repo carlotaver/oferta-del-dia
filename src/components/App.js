@@ -54,6 +54,14 @@ class App extends React.Component {
     this.setState({ fishes: updatedFishes });
   };
 
+  deleteFish = fishKey => {
+    const fishes = { ...this.state.fishes };
+    // The `null` bit is needed by Firebase
+    // a reasonable alternative would be `delete fishes[fishKey]`
+    fishes[fishKey] = null;
+    this.setState({ fishes: fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -75,6 +83,7 @@ class App extends React.Component {
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

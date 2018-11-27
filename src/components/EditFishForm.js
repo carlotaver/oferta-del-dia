@@ -10,6 +10,10 @@ class EditFishForm extends React.Component {
     this.props.updateFish(this.props.fishKey, updatedFish);
   };
 
+  handleDelete = _event => {
+    this.props.deleteFish(this.props.fishKey);
+  };
+
   render() {
     return (
       <div className="fish-edit">
@@ -44,6 +48,7 @@ class EditFishForm extends React.Component {
           onChange={this.handleChange}
           value={this.props.fish.image}
         />
+        <button onClick={this.handleDelete}>Remove Fish</button>
       </div>
     );
   }
