@@ -392,3 +392,8 @@ Create a `_redirects` file 👇
 ```
 
 When asked for a `deploy path:` enter `build`.
+
+## Notes for Iago: Tuesday 27
+
+- `event.currentTarget` is the thing the event got fired on
+- computed property names: new to ES2015
