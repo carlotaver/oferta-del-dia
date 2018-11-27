@@ -491,6 +491,7 @@ ul.order li span.count span {
 }
 button,
 input[type=submit] {
+  padding-top: 3px;
   text-transform: uppercase;
   background: none;
   border: 1px solid #000;
