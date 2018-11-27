@@ -290,9 +290,9 @@ process.env.REACT_APP_API_SECRET;
 
 And remember to `.gitignore` the `.env` file!!!
 
-## 9. Component Lyfecicle
+## 9. Component Lifecycle
 
-Check out React Docs about [React.Component Lifecicle](https://reactjs.org/docs/react-component.html#the-component-lifecycle). We are using:
+Check out React Docs about [React.Component Lifecycle](https://reactjs.org/docs/react-component.html#the-component-lifecycle). We are using:
 
 - [`ComponentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount)
 - [`ComponentDidUpdate`](https://reactjs.org/docs/react-component.html#componentdidupdate)
@@ -361,9 +361,29 @@ Create a custom alias 👇
 
 You can access your site through `https://obradoiroteoftw.now.sh/`.
 
-### Deploy to Netlify (WORKING)
+## Deploy to Netlify
 
-tl;dr 👇
+### Fast and automated
+
+Create a `_redirects` file 👇 inside your `public/` folder
+
+```
+/*    /index.html   200
+```
+
+Link your deploy site to your github project
+
+Voilà!
+
+### Slow and manual
+
+Create a `_redirects` file 👇 inside your `public/` folder
+
+```
+/*    /index.html   200
+```
+
+Run
 
 ```
 ❯ npm run deploy:netlify
@@ -371,7 +391,7 @@ tl;dr 👇
 
 When asked for a `deploy path:` enter `build`.
 
-Long version 👇
+#### Long version 👇
 
 ```
 ❯ npm install -g netlify-cli
@@ -379,21 +399,9 @@ Long version 👇
 netlify-cli/2.2.1 darwin-x64 node-v8.12.0
 ```
 
-Create a `_redirects` file 👇
-
-```
-/*    /index.html   200
-```
-
 ```
 ❯ npm run build
-❯ cp _redirects build/
 ❯ netlify deploy
 ```
 
 When asked for a `deploy path:` enter `build`.
-
-## Notes for Iago: Tuesday 27
-
-- `event.currentTarget` is the thing the event got fired on
-- computed property names: new to ES2015
