@@ -1,7 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class AddFishForm extends React.Component {
-  /*
+  static propTypes = {
+    addFish: PropTypes.func.isRequired
+  };
+
   state = {
     name: "",
     price: "",
@@ -17,6 +21,7 @@ class AddFishForm extends React.Component {
   handleChangePrice = event => {
     this.setState({ price: event.target.value });
   };
+  /*
         <input
           type="text"
           name="name"
@@ -32,13 +37,12 @@ class AddFishForm extends React.Component {
           placeholder="Price"
         />
 
-*/
-
-  nameRef = React.createRef();
-  priceRef = React.createRef();
-  statusRef = React.createRef();
-  descRef = React.createRef();
-  imageRef = React.createRef();
+        nameRef = React.createRef();
+        priceRef = React.createRef();
+        statusRef = React.createRef();
+        descRef = React.createRef();
+        imageRef = React.createRef();
+      */
 
   createFish = event => {
     // 1. Stop the <form> from submitting
