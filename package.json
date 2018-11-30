@@ -30,7 +30,6 @@
   },
   "browserslist": [
     ">0.2%",
-    "not ie <= 11",
     "not op_mini all"
   ]
 }

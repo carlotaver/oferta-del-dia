@@ -1,7 +1,7 @@
 .order-enter {
   -webkit-transform: translateX(-120%);
           transform: translateX(-120%);
-  transition: 0.5s;
+  transition: 5s;
   max-height: 0;
   padding: 0 !important;
 }

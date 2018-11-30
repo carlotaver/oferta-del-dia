@@ -1,12 +1,8 @@
 import React from "react";
 import { formatPrice } from "../helpers";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Order extends React.Component {
-  handleRemove = event => {
-    // NOTE: There's got to be a better way to do 👇
-    const orderKey = event.target.parentNode.attributes.orderkey.value;
-    this.props.removeFromOrder(orderKey);
-  };
   totalReducer = (subTotal, value) => {
     const fish = this.props.fishes[value];
     const quantity = this.props.order[value];
@@ -19,22 +15,49 @@ class Order extends React.Component {
     const quantity = this.props.order[orderKey];
     const fish = this.props.fishes[orderKey];
     const isAvailable = fish && fish.status === "available";
+    const orderTransitionOptions = {
+      classNames: "order",
+      key: orderKey,
+      timeout: { enter: 500, exit: 500 }
+    };
+    const countTransitionOptions = {
+      classNames: "count",
+      key: quantity,
+      timeout: { enter: 500, exit: 500 }
+    };
 
     if (!fish) return null;
 
     if (isAvailable) {
       return (
-        <li key={orderKey} orderkey={orderKey}>
-          {quantity} lbs {fish.name}
-          <span>{formatPrice(quantity * fish.price)}</span>
-          <button onClick={this.handleRemove}>&times;</button>
-        </li>
+        <CSSTransition {...orderTransitionOptions}>
+          <li key={orderKey}>
+            <span>
+              <TransitionGroup component="span" className="count">
+                <CSSTransition {...countTransitionOptions}>
+                  <span>{quantity}</span>
+                </CSSTransition>
+              </TransitionGroup>
+              lbs {fish.name}
+              {formatPrice(quantity * fish.price)}
+              <button onClick={() => this.props.removeFromOrder(orderKey)}>
+                &times;
+              </button>
+            </span>
+          </li>
+        </CSSTransition>
       );
     } else {
       return (
-        <li key={orderKey}>
-          Sorry {fish ? fish.name : "product"} is not available!
-        </li>
+        <CSSTransition
+          classNames="order"
+          key={orderKey}
+          timeout={{ enter: 500, exit: 500 }}
+        >
+          <li key={orderKey}>
+            Sorry {fish ? fish.name : "product"} is not available!
+          </li>
+        </CSSTransition>
       );
     }
   };
@@ -46,7 +69,9 @@ class Order extends React.Component {
     return (
       <div className="order-wrap">
         <h2>Your Order</h2>
-        <ul className="order">{orderIds.map(this.renderOrder)}</ul>
+        <TransitionGroup component="ul" className="order">
+          {orderIds.map(this.renderOrder)}
+        </TransitionGroup>
         <div className="total">
           Total: <strong>{formatPrice(total)}</strong>
         </div>
